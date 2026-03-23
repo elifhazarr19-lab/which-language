@@ -16,7 +16,7 @@ codexes:
     config:
       # Get your API key from https://ai.google.dev/
       api_key: "${GOOGLE_API_KEY}"  # Or set directly: "your-api-key-here"
-      model_name: "gemini-3.1-flash-lite-preview"
+      model: "gemini-3.1-flash-lite-preview"
       cooldown_seconds: 1.2
   aider:
     enabled: true
@@ -32,7 +32,7 @@ codexes:
     config:
       # Get your API key from https://platform.openai.com/
       api_key: "${OPENAI_API_KEY}"
-      model_name: "gpt-4.1"
+      model: "gpt-4.1"
       organization: "${OPENAI_ORG_ID}"  # Optional
       project: "${OPENAI_PROJECT_ID}"  # Optional
       cooldown_seconds: 0.5
@@ -54,7 +54,7 @@ codexes:
   #   class: DeepSeekCodex
   #   config:
   #     api_key: "${DEEPSEEK_API_KEY}"
-  #     model_name: "deepseek-v3.2"  # Options: deepseek-v3.2, deepseek-r1
+  #     model: "deepseek-v3.2"  # Options: deepseek-v3.2, deepseek-r1
   #     api_endpoint: "https://api.deepseek.com/v1"
 
   # Qwen (3 Coder, 3.5)
@@ -65,7 +65,7 @@ codexes:
   #   class: QwenCodex
   #   config:
   #     api_key: "${ALIBABA_API_KEY}"
-  #     model_name: "qwen-3.5"  # Options: qwen-3-coder, qwen-3.5
+  #     model: "qwen-3.5"  # Options: qwen-3-coder, qwen-3.5
   #     region: "us-west-1"  # Alibaba Cloud region
 
   # Cline (CLI mode)
@@ -87,7 +87,7 @@ codexes:
   #   class: GrokCodex
   #   config:
   #     api_key: "${XAI_API_KEY}"
-  #     model_name: "grok-3"
+  #     model: "grok-3"
   #     api_endpoint: "https://api.x.ai/v1"
 
   # Ollama (Self-hosted models)
@@ -97,7 +97,7 @@ codexes:
   #   enabled: false
   #   class: OllamaCodex
   #   config:
-  #     model_name: "llama4:405b"  # Or mistral-large, codellama, etc.
+  #     model: "llama4:405b"  # Or mistral-large, codellama, etc.
   #     api_endpoint: "http://localhost:11434"  # Local Ollama server
 
   # Goose (Agentic CLI)

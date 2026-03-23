@@ -108,9 +108,9 @@ while i < ARGV.length
         ruby benchmark.rb --trials 10 --start 11
 
       By default, outputs are written under:
-        artifacts/<codex>/<problem>/
+        artifacts/<codex>/<model>/<problem>/
       or, for dry runs:
-        artifacts/<codex>/<problem>/dry-run/
+        artifacts/<codex>/<model>/<problem>/dry-run/
     HELP
     exit 0
   else
@@ -139,11 +139,12 @@ unless unknown_languages.empty?
 end
 
 if selected_output_root.nil?
-  selected_output_root = if dry_run
-                           File.join(BASE_DIR, 'artifacts', selected_codex, problem, 'dry-run')
-                         else
-                           File.join(BASE_DIR, 'artifacts', selected_codex, problem)
-                         end
+  selected_output_root = CodexLoader.default_output_root(
+    selected_codex,
+    problem: problem,
+    base_dir: BASE_DIR,
+    dry_run: dry_run,
+  )
 end
 
 work_dir = File.join(selected_output_root, 'generated')

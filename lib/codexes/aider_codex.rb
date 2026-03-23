@@ -1,13 +1,14 @@
+require_relative 'base_codex'
 require 'open3'
 require 'fileutils'
 
-class AiderCodex
+class AiderCodex < BaseCodex
   def initialize(config = {})
-    @config = config || {}
-    @model = @config['model'] || 'gemini/gemini-2.5-pro'
+    super('aider', config || {})
+    @model = config[:model] || config['model'] || 'gemini/gemini-2.5-pro'
     
     # API Anahtarı Yönetimi
-    raw_key = @config['gemini_api_key']
+    raw_key = config[:gemini_api_key] || config['gemini_api_key']
     if raw_key == "${GOOGLE_API_KEY}"
       @api_key = ENV['GOOGLE_API_KEY']
     else

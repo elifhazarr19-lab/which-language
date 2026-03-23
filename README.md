@@ -34,12 +34,15 @@ Think of the benchmark as a matrix:
 Each benchmark run writes outputs under a namespaced root:
 
 ```text
-artifacts/<codex>/<problem>/
+artifacts/<codex>/<model>/<problem>/
   generated/
   logs/
   results/
   figures/
 ```
+
+The `<model>` segment comes from `config.model`. Values like `gemini/gemini-2.5-pro`
+intentionally create deeper namespaces under the selected codex.
 
 That layout is now the default for both helper scripts and direct `benchmark.rb` usage.
 
@@ -89,7 +92,7 @@ This verifies:
 Dry runs are isolated under:
 
 ```text
-artifacts/<codex>/<problem>/dry-run/
+artifacts/<codex>/<model>/<problem>/dry-run/
 ```
 
 ### 4. Run a real benchmark
@@ -106,10 +109,10 @@ ruby benchmark.rb --codex gemini --problem minigit --lang python --trials 1
 
 ### 5. Read the outputs
 
-- raw results: `artifacts/<codex>/<problem>/results/results.json`
-- report: `artifacts/<codex>/<problem>/results/report.md`
-- figures: `artifacts/<codex>/<problem>/figures/`
-- generated code / build artifacts: `artifacts/<codex>/<problem>/generated/`
+- raw results: `artifacts/<codex>/<model>/<problem>/results/results.json`
+- report: `artifacts/<codex>/<model>/<problem>/results/report.md`
+- figures: `artifacts/<codex>/<model>/<problem>/figures/`
+- generated code / build artifacts: `artifacts/<codex>/<model>/<problem>/generated/`
 
 ### Installation
 
@@ -226,7 +229,7 @@ Those constraints are acceptable for now, but they are worth knowing if you plan
 │   └── codexes.local.yml   # local override, gitignored
 ├── scripts/
 └── artifacts/
-    └── <codex>/<problem>/
+    └── <codex>/<model>/<problem>/
 ```
 
 ## Recommended commands
